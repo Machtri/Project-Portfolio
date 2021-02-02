@@ -10,11 +10,11 @@ app.on("ready", () => {
     mainWindow = new BrowserWindow({ width: 900, height: 680, titleBarStyle: "hidden", show: false });
     mainWindow.loadURL(
         isDev ? "http://localhost:3000"
-        : `file://${path.join(__dirname, "../build/splash.html")}`
+        : `file://${path.join(__dirname, "../public/index.html")}`
     );
 
-    splash = new BrowserWindow({ width: 850, height: 600, frame: false, alwaysOnTop: true });
-    splash.loadURL(`file://${path.join(__dirname, "../build/splash.html")}`)
+    splash = new BrowserWindow({ width: 1024, height: 752, frame: false, alwaysOnTop: true, titleBarStyle: "hidden" });
+    splash.loadURL(`file://${path.join(__dirname, "../public/splash.html")}`)
     ;
     mainWindow.once("ready-to-show", () => {
         splash.destroy();
@@ -25,15 +25,5 @@ app.on("ready", () => {
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {
         app.quit();
-    }
-});
-
-app.on("activate", () => {
-    if (mainWindow === null) {
-        mainWindow = new BrowserWindow({ width: 900, height: 680, titleBarStyle: "hidden" });
-        mainWindow.loadURL(
-            isDev ? "http://localhost:3000"
-            : `file://${path.join(__dirname, "../build/splash.html")}`
-        );
     }
 });
