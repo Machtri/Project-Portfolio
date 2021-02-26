@@ -23,5 +23,3 @@ This is where I keep various standalone projects that I've either worked on or a
 ## List of Projects
 
 *A checkmark denotes a finished project*
-
-- [ ] Magic: the Gathering Deck List and Organizer
